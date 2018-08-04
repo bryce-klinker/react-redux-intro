@@ -1,0 +1,51 @@
+{
+  "name": "react-redux-intro",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:bryce-klinker/react-redux-intro.git",
+  "author": "Bryce Klinker <bklinker@pillartechnology.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.dev.js --hot --inline --colors --progress --mode development",
+    "bundle": "webpack --config ./webpack.prod.js --mode production --colors --progress",
+    "test": "jest --config ./jest.config.js",
+    "test:watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-redux": "5.0.7",
+    "redux": "4.0.0",
+    "redux-actions": "2.6.1",
+    "redux-devtools-extension": "2.13.5",
+    "redux-observable": "1.0.0",
+    "reselect": "3.0.1",
+    "rxjs": "6.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0-beta.56",
+    "@babel/preset-env": "7.0.0-beta.56",
+    "@babel/preset-react": "7.0.0-beta.56",
+    "autoprefixer": "9.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.4.2",
+    "babel-loader": "8.0.0-beta.4",
+    "css-loader": "1.0.0",
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "1.1.1",
+    "html-webpack-plugin": "3.2.0",
+    "husky": "0.14.3",
+    "jest": "23.4.2",
+    "jest-spec-reporter": "1.0.4",
+    "postcss-loader": "2.1.6",
+    "prettier": "1.14.0",
+    "pretty-quick": "1.6.0",
+    "redux-mock-store": "1.5.3",
+    "style-loader": "0.21.0",
+    "webpack": "4.16.4",
+    "webpack-cli": "3.1.0",
+    "webpack-dev-server": "3.1.5",
+    "xhr-mock": "2.4.1"
+  }
+}

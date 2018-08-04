@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "precommit": "pretty-quick --staged",
     "start": "webpack-dev-server --config ./webpack.dev.js --hot --inline --colors --progress --mode development",
     "bundle": "webpack --config ./webpack.prod.js --mode production --colors --progress",
     "test": "jest --config ./jest.config.js",

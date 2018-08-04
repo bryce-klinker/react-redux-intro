@@ -23,7 +23,7 @@ const getMoviesSuccess = (state, action) => ({
 
 const getMoviesFailed = state => ({ ...state, isLoading: false });
 
-const initialState = {
+export const moviesInitialState = {
   isLoading: false,
   movies: {},
 };
@@ -34,5 +34,5 @@ export const moviesReducer = handleActions(
     [ActionTypes.GET_MOVIES_SUCCESS]: getMoviesSuccess,
     [ActionTypes.GET_MOVIES_FAILED]: getMoviesFailed,
   },
-  initialState
+  moviesInitialState
 );

@@ -11,7 +11,7 @@ export const getCurrentCountSelector = createSelector(
 const increment = state => ({ ...state, current: state.current + 1 });
 const decrement = state => ({ ...state, current: state.current - 1 });
 
-const initialState = {
+export const counterInitialState = {
   current: 0,
 };
 
@@ -20,5 +20,5 @@ export const counterReducer = handleActions(
     [ActionTypes.INCREMENT]: increment,
     [ActionTypes.DECREMENT]: decrement,
   },
-  initialState
+  counterInitialState
 );

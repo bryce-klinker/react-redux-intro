@@ -3,5 +3,5 @@ module.exports = {
   setupTestFrameworkScriptFile: '<rootDir>/testing/setup.js',
   reporters: ['jest-spec-reporter'],
   testURL: 'http://localhost',
-  environment: 'jsdom',
+  testEnvironment: 'jsdom',
 };

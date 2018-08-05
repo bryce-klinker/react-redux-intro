@@ -7,21 +7,23 @@ import { getMoviesArraySelector } from '../../reducers';
 import { MoviesList } from './MoviesListComponent';
 
 class ContainerComponent extends Component {
-    componentDidMount() {
-        const { getMovies } = this.props;
-        getMovies();
-    }
+  componentDidMount() {
+    const { getMovies } = this.props;
+    getMovies();
+  }
 
-    render() {
-        const { movies } = this.props;
-        return <MoviesList movies={movies} />
-    }
+  render() {
+    return <MoviesList {...this.props} />;
+  }
 }
 
-const mapStateToProps = (state) => ({
-    movies: getMoviesArraySelector(state)
+const mapStateToProps = state => ({
+  movies: getMoviesArraySelector(state),
 });
 
-const maptDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);
+const maptDispatchToProps = dispatch => bindActionCreators(Actions, dispatch);
 
-export const MoviesListContainer = connect(mapStateToProps, maptDispatchToProps)(ContainerComponent);
+export const MoviesListContainer = connect(
+  mapStateToProps,
+  maptDispatchToProps
+)(ContainerComponent);

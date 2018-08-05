@@ -8,9 +8,9 @@ export const SocketActionTypes = {
 const newConnection = createAction(SocketActionTypes.NEW_CONNECTION, socket => ({ socket }));
 const closeConnection = createAction(SocketActionTypes.CLOSE_CONNECTION, socket => ({ socket }));
 
-const receivedAction = (action, socket) => ({
-  type: action.type,
-  payload: action.payload,
+const receivedAction = ({ type, payload }, socket) => ({
+  type,
+  payload,
   socket,
 });
 

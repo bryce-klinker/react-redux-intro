@@ -22,7 +22,15 @@ const addMovieSuccess = createAction(MovieActionTypes.ADD_MOVIE_SUCCESS, movie =
 const addMovieFailed = createAction(MovieActionTypes.ADD_MOVIE_FAILED, err => err);
 
 export const MovieActions = {
-  getMovies,
+  getMovies: function() {
+    // allowed because of redux-thunk
+    return function action(dispatch, getState, { baseUrl } = {}) {
+      return fetch(`${baseUrl}/api/movies`)
+        .then(res => res.json())
+        .then(movies => dispatch(getMoviesSuccess(movies)))
+        .catch(err => dispatch(getMoviesFailed(err)));
+    };
+  },
   getMoviesSuccess,
   getMoviesFailed,
   addMovieBegin,

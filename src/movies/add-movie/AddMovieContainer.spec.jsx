@@ -59,7 +59,21 @@ describe('AddMovieContainer', () => {
 
     const addMovie = mountWithStore(AddMovieContainer, store);
     enterValueInField(addMovie, 'title', 'Bob');
-    addMovie.find('button.confirm-button').simulate('tap');
+    addMovie.find('button.confirm-button').simulate('click');
+
+    expect(store.getActions()).toContainEqual(Actions.addMovieConfirmed({ title: 'Bob' }));
+  });
+
+  it('should confirm add movie on form submit', () => {
+    const store = createMockStore({
+      movies: {
+        isAdding: true,
+      },
+    });
+
+    const addMovie = mountWithStore(AddMovieContainer, store);
+    enterValueInField(addMovie, 'title', 'Bob');
+    addMovie.find('form').simulate('submit');
 
     expect(store.getActions()).toContainEqual(Actions.addMovieConfirmed({ title: 'Bob' }));
   });

@@ -10,7 +10,7 @@ export class AddMovie extends Component {
     return (
       <Dialog open={isOpen}>
         <DialogContent>
-          <form>
+          <form onSubmit={this.onConfirmed}>
             <TextField autoFocus value={title} id="title" label="Title" onChange={this.onFieldChanged('title')} />
           </form>
         </DialogContent>
@@ -31,7 +31,9 @@ export class AddMovie extends Component {
     addMovieCancelled();
   };
 
-  onConfirmed = () => {
+  onConfirmed = evt => {
+    if (evt) evt.preventDefault();
+
     const { addMovieConfirmed } = this.props;
     addMovieConfirmed(this.state);
   };

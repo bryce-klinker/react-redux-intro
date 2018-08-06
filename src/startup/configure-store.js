@@ -8,7 +8,7 @@ import { socketMiddleware } from '../middleware';
 
 export function configureStore() {
   const epicMiddleware = createEpicMiddleware({
-    dependencies: { baseUrl: 'http://localhost:3000' },
+    dependencies: { baseUrl: BASE_URL },
   });
   const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(epicMiddleware, socketMiddleware)));
   epicMiddleware.run(rootEpic);

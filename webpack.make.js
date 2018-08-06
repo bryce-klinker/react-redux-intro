@@ -1,4 +1,6 @@
+const ip = require('ip');
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function isDev(env) {
@@ -77,6 +79,9 @@ function getProdPlugins() {
 
 function getBasePlugins() {
   return [
+    new webpack.DefinePlugin({
+      BASE_URL: JSON.stringify(`http://${ip.address()}:3000`),
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
       inject: 'body',

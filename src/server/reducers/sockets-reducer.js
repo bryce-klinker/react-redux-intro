@@ -1,6 +1,12 @@
 import { handleActions } from 'redux-actions';
+import { createSelector } from 'reselect';
 
 import { SocketActionTypes } from '../actions';
+
+export const getAllSocketsSelector = createSelector(
+  ({ sockets: { sockets = [] } = {} } = {}) => sockets,
+  sockets => sockets
+);
 
 const newConnection = (state, action) => ({
   ...state,
@@ -12,7 +18,7 @@ const closeConnection = (state, action) => ({
   sockets: [...state.sockets.filter(s => s !== action.payload.socket)],
 });
 
-const socketsInitialState = {
+export const socketsInitialState = {
   sockets: [],
 };
 

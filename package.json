@@ -9,7 +9,7 @@
   "scripts": {
     "precommit": "pretty-quick --staged",
     "run:server": "babel-node ./src/server/index.js",
-    "start:client": "webpack-dev-server --config ./webpack.dev.js --hot --inline --colors --progress --mode development",
+    "start:client": "webpack-dev-server --host 0.0.0.0 --config ./webpack.dev.js --hot --inline --colors --progress --mode development",
     "start:server": "nodemon --watch ./src/server --exec \"yarn run:server\"",
     "start": "concurrently \"yarn start:client\" \"yarn start:server\"",
     "bundle": "webpack --config ./webpack.prod.js --mode production --colors --progress",
@@ -19,6 +19,8 @@
   "dependencies": {
     "@material-ui/core": "1.4.3",
     "@material-ui/icons": "2.0.1",
+    "body-parser": "1.18.3",
+    "cors": "2.8.4",
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "react-redux": "5.0.7",
@@ -28,7 +30,8 @@
     "redux-observable": "1.0.0",
     "reselect": "3.0.1",
     "rxjs": "6.2.2",
-    "socket.io-client": "2.1.1"
+    "socket.io-client": "2.1.1",
+    "uuid": "3.3.2"
   },
   "devDependencies": {
     "@babel/core": "7.0.0-beta.56",
@@ -47,6 +50,7 @@
     "express": "4.16.3",
     "html-webpack-plugin": "3.2.0",
     "husky": "0.14.3",
+    "ip": "1.1.5",
     "jest": "23.4.2",
     "jest-spec-reporter": "1.0.4",
     "morgan": "1.9.0",

@@ -50,6 +50,20 @@ describe('AddMovieContainer', () => {
     expect(store.getActions()).toContainEqual(Actions.addMovieConfirmed({ title: 'Bob' }));
   });
 
+  it('should confirm add movie', () => {
+    const store = createMockStore({
+      movies: {
+        isAdding: true,
+      },
+    });
+
+    const addMovie = mountWithStore(AddMovieContainer, store);
+    enterValueInField(addMovie, 'title', 'Bob');
+    addMovie.find('button.confirm-button').simulate('tap');
+
+    expect(store.getActions()).toContainEqual(Actions.addMovieConfirmed({ title: 'Bob' }));
+  });
+
   function enterValueInField(container, fieldName, value) {
     const input = container.find(`input#${fieldName}`).getDOMNode();
     input.value = value;
